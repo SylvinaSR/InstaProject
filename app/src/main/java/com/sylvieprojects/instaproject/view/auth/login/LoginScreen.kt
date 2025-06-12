@@ -17,27 +17,22 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sylvieprojects.instaproject.R
 
-@Preview(showSystemUi = true)
 @Composable
-fun LoginScreen() {
+fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
+    val uiState by loginViewModel.uiState.collectAsStateWithLifecycle()
     Scaffold { padding ->
-        var email by remember { mutableStateOf("") }
-        var password by remember { mutableStateOf("") }
         Column(
             modifier = Modifier
                 .background(Color.White)
@@ -61,22 +56,26 @@ fun LoginScreen() {
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(25),
-                value = email,
+                value = uiState.email,
                 label = {
                     Text("Usuario, correo electrónico o móvil")
                 },
-                onValueChange = { email = it })
+                onValueChange = { loginViewModel.onEmailChange(it) })
             Spacer(modifier = Modifier.height(12.dp))
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(25),
-                value = password,
+                value = uiState.password,
                 label = {
                     Text("Contraseña")
                 },
-                onValueChange = { password = it })
+                onValueChange = { loginViewModel.onPasswordChange(it) })
             Spacer(modifier = Modifier.height(12.dp))
-            Button(modifier = Modifier.fillMaxWidth(), onClick = {}) {
+            Button(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {},
+                enabled = uiState.isLoginEnable
+            ) {
                 Text(modifier = Modifier.padding(6.dp), text = "Iniciar sesión")
             }
             Spacer(modifier = Modifier.height(16.dp))
