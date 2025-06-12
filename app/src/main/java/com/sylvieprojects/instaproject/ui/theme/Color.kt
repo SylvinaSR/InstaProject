@@ -1,4 +1,4 @@
-package com.sylvieprojects.myapplication.ui.theme
+package com.sylvieprojects.instaproject.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

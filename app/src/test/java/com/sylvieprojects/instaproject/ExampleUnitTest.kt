@@ -1,4 +1,4 @@
-package com.sylvieprojects.myapplication
+package com.sylvieprojects.instaproject
 
 import org.junit.Test
 
