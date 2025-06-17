@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -57,7 +56,7 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
             Spacer(modifier = Modifier.weight(1f))
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(25),
+                shape = MaterialTheme.shapes.large,
                 value = uiState.email,
                 label = {
                     Text(
@@ -69,7 +68,7 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
             Spacer(modifier = Modifier.height(12.dp))
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
-                shape = RoundedCornerShape(25),
+                shape = MaterialTheme.shapes.large,
                 value = uiState.password,
                 label = {
                     Text("Contraseña", color = MaterialTheme.colorScheme.onBackground)
