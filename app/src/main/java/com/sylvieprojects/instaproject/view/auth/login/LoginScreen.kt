@@ -30,7 +30,7 @@ import com.sylvieprojects.instaproject.view.core.components.InstaButton
 import com.sylvieprojects.instaproject.view.core.components.InstaText
 
 @Composable
-fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
+fun LoginScreen(loginViewModel: LoginViewModel = viewModel(), navigateToSignUp: () -> Unit) {
     val uiState by loginViewModel.uiState.collectAsStateWithLifecycle()
     Scaffold { padding ->
         Column(
@@ -81,7 +81,7 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
             Spacer(modifier = Modifier.weight(1f))
             OutlinedButton(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = {},
+                onClick = { navigateToSignUp() },
                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
             ) {
                 InstaText(

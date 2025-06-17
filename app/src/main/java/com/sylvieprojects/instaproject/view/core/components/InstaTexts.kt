@@ -16,3 +16,23 @@ fun InstaText(
 ) {
     Text(modifier = modifier, text = text, color = color, style = style)
 }
+
+@Composable
+fun InstaTitles(
+    modifier: Modifier = Modifier,
+    text: String,
+    color: Color = MaterialTheme.colorScheme.onBackground,
+    style: TextStyle = MaterialTheme.typography.titleMedium
+) {
+    Text(modifier = modifier, text = text, color = color, style = style)
+}
+
+@Composable
+fun InstaTextSmall(
+    modifier: Modifier = Modifier,
+    text: String,
+    color: Color = MaterialTheme.colorScheme.onBackground,
+    style: TextStyle = MaterialTheme.typography.bodySmall
+) {
+    Text(modifier = modifier, text = text, color = color, style = style)
+}

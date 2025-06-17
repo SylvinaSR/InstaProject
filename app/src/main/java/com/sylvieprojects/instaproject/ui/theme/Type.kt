@@ -26,5 +26,15 @@ val Typography = Typography(
         fontFamily = wdx,
         fontWeight = FontWeight.Black,
         fontSize = 57.sp
+    ),
+    titleMedium = TextStyle(
+        fontFamily = wdx,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 24.sp
+    ),
+    bodySmall = TextStyle(
+        fontFamily = wdx,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 12.sp
     )
 )

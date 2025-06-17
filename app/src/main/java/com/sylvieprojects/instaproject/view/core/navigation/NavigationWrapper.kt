@@ -5,13 +5,19 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sylvieprojects.instaproject.view.auth.login.LoginScreen
+import com.sylvieprojects.instaproject.view.auth.signUp.SignUpScreen
 
 @Composable
 fun NavigationWrapper() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Login) {
         composable<Login> {
-            LoginScreen()
+            LoginScreen(navigateToSignUp = {
+                navController.navigate(SignUp)
+            })
+        }
+        composable<SignUp> {
+            SignUpScreen()
         }
     }
 }
