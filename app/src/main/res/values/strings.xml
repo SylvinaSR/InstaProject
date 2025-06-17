@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">InstaProject</string>
+<!--    Login Screen-->
+    <string name="login_screen_header_language">Español (Latinoamerica)</string>
+    <string name="login_screen_label_user">Usuario, correo electrónico o móvil</string>
+    <string name="login_screen_label_password">Contraseña</string>
+    <string name="login_screen_text_login">Iniciar sesión</string>
+    <string name="login_screen_text_forgot_password">¿Has olvidado la contraseña?</string>
+    <string name="login_screen_text_sign_up">Crear cuenta nueva</string>
 </resources>

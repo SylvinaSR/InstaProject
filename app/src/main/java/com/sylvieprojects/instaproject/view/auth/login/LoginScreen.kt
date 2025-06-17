@@ -21,6 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -42,7 +43,7 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
         ) {
             InstaText(
                 modifier = Modifier.padding(top = 22.dp),
-                text = "Español (Latinoamerica)"
+                text = stringResource(R.string.login_screen_header_language)
             )
             Spacer(modifier = Modifier.weight(1f))
             Image(
@@ -55,7 +56,7 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
                 modifier = Modifier.fillMaxWidth(),
                 shape = MaterialTheme.shapes.large,
                 value = uiState.email,
-                label = { InstaText(text = "Usuario, correo electrónico o móvil") },
+                label = { InstaText(text = stringResource(R.string.login_screen_label_user)) },
                 onValueChange = { loginViewModel.onEmailChange(it) })
             Spacer(modifier = Modifier.height(12.dp))
             OutlinedTextField(
@@ -63,19 +64,19 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
                 shape = MaterialTheme.shapes.large,
                 value = uiState.password,
                 label = {
-                    InstaText(text = "Contraseña")
+                    InstaText(text = stringResource(R.string.login_screen_label_password))
                 },
                 onValueChange = { loginViewModel.onPasswordChange(it) })
             Spacer(modifier = Modifier.height(12.dp))
             InstaButton(
                 modifier = Modifier.fillMaxWidth(),
-                text = "Iniciar sesión",
+                text = stringResource(R.string.login_screen_text_login),
                 onClick = {},
                 enabled = uiState.isLoginEnable
             )
             Spacer(modifier = Modifier.height(16.dp))
             TextButton(onClick = {}) {
-                InstaText(text = "¿Has olvidado la contraseña?")
+                InstaText(text = stringResource(R.string.login_screen_text_forgot_password))
             }
             Spacer(modifier = Modifier.weight(1f))
             OutlinedButton(
@@ -85,7 +86,7 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel()) {
             ) {
                 InstaText(
                     modifier = Modifier.padding(6.dp),
-                    text = "Crear cuenta nueva",
+                    text = stringResource(R.string.login_screen_text_sign_up),
                     color = MaterialTheme.colorScheme.primary
                 )
             }
