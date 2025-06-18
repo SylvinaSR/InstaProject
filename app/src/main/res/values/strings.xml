@@ -8,11 +8,16 @@
     <string name="login_screen_text_forgot_password">¿Has olvidado la contraseña?</string>
     <string name="login_screen_text_sign_up">Crear cuenta nueva</string>
 <!--    SignUp Screen-->
-    <string name="signup_screen_title">¿Cuál es tu número de celular?</string>
-    <string name="signup_screen_description">Introduce tu número de teléfono. Nadie lo verá en tu perfil.</string>
+    <string name="signup_screen_title_phone">¿Cuál es tu número de celular?</string>
+    <string name="signup_screen_description_phone">Introduce tu número de teléfono. Nadie lo verá en tu perfil.</string>
+    <string name="signup_screen_title_email">¿Cuál es tu correo electrónico?</string>
+    <string name="signup_screen_description_email">Introduce tu correo electrónico de contacto. Nadie lo verá en tu perfil.</string>
     <string name="signup_screen_label_number">Número de teléfono</string>
-    <string name="signup_screen_text_notifications">Puede que recibas notificaciones nuestras en WhatsApp y por SMS por motivo de seguridad y para iniciar sesión.</string>
+    <string name="signup_screen_label_email">Correo electrónico</string>
+    <string name="signup_screen_text_notifications_phone">Puede que recibas notificaciones nuestras en WhatsApp y por SMS por motivo de seguridad y para iniciar sesión.</string>
+    <string name="signup_screen_text_notifications_email">También te enviaremos correos electrónicos. Puedes cancelar esta opción cuando quieras</string>
     <string name="label_next">Siguiente</string>
     <string name="signup_screen_button_register_email">Registrarte con tu correo electrónico</string>
+    <string name="signup_screen_button_register_phone">Registrarte con tu número celular</string>
     <string name="signup_screen_text_search_account">Buscar mi cuenta</string>
 </resources>

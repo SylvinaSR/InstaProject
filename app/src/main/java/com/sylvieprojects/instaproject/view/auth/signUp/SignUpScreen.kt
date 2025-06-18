@@ -46,41 +46,56 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel = viewModel()) {
             )
             Spacer(modifier = Modifier.height(12.dp))
             InstaTitles(
-                text = stringResource(R.string.signup_screen_title),
+                text = if (uiState.isPhoneOption) stringResource(R.string.signup_screen_title_phone) else stringResource(
+                    R.string.signup_screen_title_email
+                ),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(modifier = Modifier.height(8.dp))
             InstaText(
-                text = stringResource(R.string.signup_screen_description),
+                text = if (uiState.isPhoneOption) stringResource(R.string.signup_screen_description_phone) else stringResource(
+                    R.string.signup_screen_description_email
+                ),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(modifier = Modifier.height(12.dp))
             OutlinedTextField(
                 modifier = Modifier.fillMaxWidth(),
                 shape = MaterialTheme.shapes.large,
-                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-                value = uiState.phoneNumber,
+                keyboardOptions = KeyboardOptions(keyboardType = if (uiState.isPhoneOption) KeyboardType.Phone else KeyboardType.Email),
+                value = uiState.inputText,
                 label = {
-                    InstaText(text = stringResource(R.string.signup_screen_label_number))
+                    InstaText(
+                        text = if (uiState.isPhoneOption) stringResource(R.string.signup_screen_label_number) else stringResource(
+                            R.string.signup_screen_label_email
+                        )
+                    )
                 },
-                onValueChange = { signUpViewModel.onPhoneNumberChange(it) })
+                onValueChange = { signUpViewModel.onTextChanged(it) })
             Spacer(modifier = Modifier.height(6.dp))
-            InstaTextSmall(text = stringResource(R.string.signup_screen_text_notifications))
+            InstaTextSmall(
+                text = if (uiState.isPhoneOption) stringResource(R.string.signup_screen_text_notifications_phone) else stringResource(
+                    R.string.signup_screen_text_notifications_email
+                )
+            )
             Spacer(modifier = Modifier.height(14.dp))
             InstaButton(
                 modifier = Modifier.fillMaxWidth(),
                 text = stringResource(R.string.label_next),
                 onClick = {},
-                enabled = uiState.isNextEnable)
+                enabled = uiState.isNextEnable
+            )
             Spacer(modifier = Modifier.height(12.dp))
             OutlinedButton(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = {},
+                onClick = { signUpViewModel.onOptionChange() },
                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.onSurfaceVariant)
             ) {
                 InstaText(
                     modifier = Modifier.padding(6.dp),
-                    text = stringResource(R.string.signup_screen_button_register_email),
+                    text = if (uiState.isPhoneOption) stringResource(R.string.signup_screen_button_register_email) else stringResource(
+                        R.string.signup_screen_button_register_phone
+                    ),
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
