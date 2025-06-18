@@ -17,7 +17,9 @@ fun NavigationWrapper() {
             })
         }
         composable<SignUp> {
-            SignUpScreen()
+            SignUpScreen(navigateBack = {
+                navController.popBackStack()
+            })
         }
     }
 }

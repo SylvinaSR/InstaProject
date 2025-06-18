@@ -1,6 +1,7 @@
 package com.sylvieprojects.instaproject.view.auth.signUp
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,7 +31,7 @@ import com.sylvieprojects.instaproject.view.core.components.InstaTextSmall
 import com.sylvieprojects.instaproject.view.core.components.InstaTitles
 
 @Composable
-fun SignUpScreen(signUpViewModel: SignUpViewModel = viewModel()) {
+fun SignUpScreen(signUpViewModel: SignUpViewModel = viewModel(), navigateBack: () -> Unit) {
     val uiState by signUpViewModel.uiState.collectAsStateWithLifecycle()
     Scaffold { innerPadding ->
         Column(
@@ -40,6 +41,9 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel = viewModel()) {
                 .padding(top = 12.dp, bottom = 16.dp)
         ) {
             Icon(
+                modifier = Modifier.clickable {
+                    navigateBack()
+                },
                 imageVector = Icons.Default.ArrowBack,
                 contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant
