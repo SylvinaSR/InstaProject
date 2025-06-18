@@ -1,6 +1,5 @@
 package com.sylvieprojects.instaproject.view.auth.login
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -12,8 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -27,6 +24,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sylvieprojects.instaproject.R
 import com.sylvieprojects.instaproject.view.core.components.InstaButton
+import com.sylvieprojects.instaproject.view.core.components.InstaOutlinedButton
+import com.sylvieprojects.instaproject.view.core.components.InstaOutlinedTextField
 import com.sylvieprojects.instaproject.view.core.components.InstaText
 
 @Composable
@@ -52,20 +51,14 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel(), navigateToSignUp: 
                 contentDescription = null
             )
             Spacer(modifier = Modifier.weight(1f))
-            OutlinedTextField(
-                modifier = Modifier.fillMaxWidth(),
-                shape = MaterialTheme.shapes.large,
+            InstaOutlinedTextField(
                 value = uiState.email,
-                label = { InstaText(text = stringResource(R.string.login_screen_label_user)) },
+                label = stringResource(R.string.login_screen_label_user),
                 onValueChange = { loginViewModel.onEmailChange(it) })
             Spacer(modifier = Modifier.height(12.dp))
-            OutlinedTextField(
-                modifier = Modifier.fillMaxWidth(),
-                shape = MaterialTheme.shapes.large,
+            InstaOutlinedTextField(
                 value = uiState.password,
-                label = {
-                    InstaText(text = stringResource(R.string.login_screen_label_password))
-                },
+                label = stringResource(R.string.login_screen_label_password),
                 onValueChange = { loginViewModel.onPasswordChange(it) })
             Spacer(modifier = Modifier.height(12.dp))
             InstaButton(
@@ -79,17 +72,10 @@ fun LoginScreen(loginViewModel: LoginViewModel = viewModel(), navigateToSignUp: 
                 InstaText(text = stringResource(R.string.login_screen_text_forgot_password))
             }
             Spacer(modifier = Modifier.weight(1f))
-            OutlinedButton(
-                modifier = Modifier.fillMaxWidth(),
+            InstaOutlinedButton(
                 onClick = { navigateToSignUp() },
-                border = BorderStroke(1.dp, MaterialTheme.colorScheme.primary)
-            ) {
-                InstaText(
-                    modifier = Modifier.padding(6.dp),
-                    text = stringResource(R.string.login_screen_text_sign_up),
-                    color = MaterialTheme.colorScheme.primary
-                )
-            }
+                text = stringResource(R.string.login_screen_text_sign_up)
+            )
             Icon(
                 modifier = Modifier.size(80.dp),
                 painter = painterResource(R.drawable.ic_meta),
