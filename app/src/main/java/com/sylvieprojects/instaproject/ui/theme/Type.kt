@@ -36,5 +36,15 @@ val Typography = Typography(
         fontFamily = wdx,
         fontWeight = FontWeight.SemiBold,
         fontSize = 12.sp
+    ),
+    labelMedium = TextStyle(
+        fontFamily = wdx,
+        fontWeight = FontWeight.Normal,
+        fontSize = 10.sp
+    ),
+    labelSmall = TextStyle(
+        fontFamily = wdx,
+        fontWeight = FontWeight.Normal,
+        fontSize = 8.sp,
     )
 )
