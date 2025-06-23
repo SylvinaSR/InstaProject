@@ -18,7 +18,6 @@ import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,40 +29,37 @@ import androidx.compose.ui.unit.dp
 import com.sylvieprojects.instaproject.R
 import com.sylvieprojects.instaproject.common.InfoDataDummy
 import com.sylvieprojects.instaproject.domain.models.Post
-import com.sylvieprojects.instaproject.view.core.components.InstaTextLabelMedium
 import com.sylvieprojects.instaproject.view.core.components.InstaTextSmall
 import com.sylvieprojects.instaproject.view.core.components.InstaUserPhoto
 
 @Preview(showSystemUi = true)
 @Composable
-fun HomeScreen() {
-    Scaffold { innerPadding ->
-        Column(modifier = Modifier.padding(paddingValues = innerPadding)) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 12.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    modifier = Modifier.size(100.dp),
-                    painter = painterResource(R.drawable.instagram_title),
-                    contentDescription = null
-                )
-                Spacer(modifier = Modifier.weight(1f))
-                Icon(
-                    imageVector = Icons.Default.FavoriteBorder,
-                    contentDescription = null
-                )
-                Spacer(modifier = Modifier.width(18.dp))
-                Icon(
-                    imageVector = Icons.Default.Send,
-                    contentDescription = null
-                )
-            }
-            ListStories()
-            ListPosts()
+fun HomeScreen(modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                modifier = Modifier.size(100.dp),
+                painter = painterResource(R.drawable.instagram_title),
+                contentDescription = null
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            Icon(
+                imageVector = Icons.Default.FavoriteBorder,
+                contentDescription = null
+            )
+            Spacer(modifier = Modifier.width(18.dp))
+            Icon(
+                imageVector = Icons.Default.Send,
+                contentDescription = null
+            )
         }
+        ListStories()
+        ListPosts()
     }
 }
 
@@ -99,8 +95,15 @@ fun ListPosts() {
 
 @Composable
 fun ItemPost(post: Post) {
-    Column(modifier = Modifier.fillMaxWidth().padding(top = 16.dp)) {
-        Row(modifier = Modifier.fillMaxWidth().padding(start = 8.dp), verticalAlignment = Alignment.CenterVertically) {
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .padding(top = 16.dp)) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 8.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             InstaUserPhoto(
                 size = 40.dp,
                 borderSize = 2.dp,
@@ -118,10 +121,27 @@ fun ItemPost(post: Post) {
             contentDescription = null
         )
         Spacer(modifier = Modifier.height(12.dp))
-        Row(modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp), verticalAlignment = Alignment.CenterVertically) {
-            IconAndCount(modifier = Modifier.weight(1f), icon = Icons.Default.FavoriteBorder, count = post.likes)
-            IconAndCount(modifier = Modifier.weight(1f), icon = Icons.Default.MailOutline, count = post.comments)
-            IconAndCount(modifier = Modifier.weight(1f), icon = Icons.Default.Send, count = post.shared)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            IconAndCount(
+                modifier = Modifier.weight(1f),
+                icon = Icons.Default.FavoriteBorder,
+                count = post.likes
+            )
+            IconAndCount(
+                modifier = Modifier.weight(1f),
+                icon = Icons.Default.MailOutline,
+                count = post.comments
+            )
+            IconAndCount(
+                modifier = Modifier.weight(1f),
+                icon = Icons.Default.Send,
+                count = post.shared
+            )
             Spacer(modifier = Modifier.weight(2f))
             Icon(imageVector = Icons.Default.Info, contentDescription = null)
         }
@@ -129,7 +149,12 @@ fun ItemPost(post: Post) {
 }
 
 @Composable
-fun IconAndCount(modifier: Modifier, icon: ImageVector, count: String, contentDescription: String? = null) {
+fun IconAndCount(
+    modifier: Modifier,
+    icon: ImageVector,
+    count: String,
+    contentDescription: String? = null
+) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         Icon(imageVector = icon, contentDescription = contentDescription)
         Spacer(modifier = Modifier.width(4.dp))

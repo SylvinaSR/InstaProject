@@ -9,4 +9,4 @@ object Login
 object SignUp
 
 @Serializable
-object Home
+object Principal

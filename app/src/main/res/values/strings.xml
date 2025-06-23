@@ -20,4 +20,5 @@
     <string name="signup_screen_button_register_email">Registrarte con tu correo electrónico</string>
     <string name="signup_screen_button_register_phone">Registrarte con tu número celular</string>
     <string name="signup_screen_text_search_account">Buscar mi cuenta</string>
+<!--    Principal Screen-->
 </resources>

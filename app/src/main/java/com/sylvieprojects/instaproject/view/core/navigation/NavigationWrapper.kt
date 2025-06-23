@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sylvieprojects.instaproject.view.auth.login.LoginScreen
 import com.sylvieprojects.instaproject.view.auth.signUp.SignUpScreen
-import com.sylvieprojects.instaproject.view.home.HomeScreen
+import com.sylvieprojects.instaproject.view.principal.PrincipalScreen
 
 @Composable
 fun NavigationWrapper() {
@@ -15,7 +15,7 @@ fun NavigationWrapper() {
         composable<Login> {
             LoginScreen(
                 navigateToLogin = {
-                    navController.navigate(Home)
+                    navController.navigate(Principal)
                 },
                 navigateToSignUp = {
                 navController.navigate(SignUp)
@@ -26,8 +26,8 @@ fun NavigationWrapper() {
                 navController.popBackStack()
             })
         }
-        composable<Home> {
-            HomeScreen()
+        composable<Principal> {
+            PrincipalScreen()
         }
     }
 }
