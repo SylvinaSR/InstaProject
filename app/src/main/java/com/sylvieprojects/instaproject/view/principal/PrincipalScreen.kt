@@ -19,7 +19,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sylvieprojects.instaproject.common.InstaUtils.getNavItemById
 import com.sylvieprojects.instaproject.domain.models.NavItem
-import com.sylvieprojects.instaproject.view.core.components.InstaIcon
 import com.sylvieprojects.instaproject.view.core.components.InstaUserPhoto
 import com.sylvieprojects.instaproject.view.home.HomeScreen
 
