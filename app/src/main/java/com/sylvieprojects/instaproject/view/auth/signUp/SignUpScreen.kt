@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TextButton
@@ -23,6 +22,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sylvieprojects.instaproject.R
 import com.sylvieprojects.instaproject.view.core.components.InstaButton
+import com.sylvieprojects.instaproject.view.core.components.InstaIcon
 import com.sylvieprojects.instaproject.view.core.components.InstaOutlinedButton
 import com.sylvieprojects.instaproject.view.core.components.InstaOutlinedTextField
 import com.sylvieprojects.instaproject.view.core.components.InstaText
@@ -68,12 +68,11 @@ fun SignUpScreen(signUpViewModel: SignUpViewModel = viewModel(), navigateBack: (
                 .padding(horizontal = 16.dp)
                 .padding(top = 12.dp, bottom = 16.dp)
         ) {
-            Icon(
+            InstaIcon(
                 modifier = Modifier.clickable {
                     navigateBack()
                 },
                 imageVector = Icons.Default.ArrowBack,
-                contentDescription = null,
                 tint = MaterialTheme.colorScheme.onSurfaceVariant
             )
             Spacer(modifier = Modifier.height(12.dp))

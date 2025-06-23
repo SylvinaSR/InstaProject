@@ -23,7 +23,7 @@ val InstagramYellow = Color(0xFFFCAF45)
 val InstagramSecondaryYellow = Color(0xFFFFDC80)
 val InstagramWhite = Color(0xFFFFFFFF)
 val InstagramGray100 = Color(0xFF8F8484)
-val InstagramGray110 = Color(0xFF817979)
+val InstagramGray110 = Color(0xFF4D4A4A)
 
 //Colors Dark mode
 

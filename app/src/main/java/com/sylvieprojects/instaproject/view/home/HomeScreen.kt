@@ -17,7 +17,7 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.MailOutline
 import androidx.compose.material.icons.filled.Send
-import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import com.sylvieprojects.instaproject.R
 import com.sylvieprojects.instaproject.common.InfoDataDummy
 import com.sylvieprojects.instaproject.domain.models.Post
+import com.sylvieprojects.instaproject.view.core.components.InstaIcon
 import com.sylvieprojects.instaproject.view.core.components.InstaTextSmall
 import com.sylvieprojects.instaproject.view.core.components.InstaUserPhoto
 
@@ -42,20 +43,17 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                 .padding(horizontal = 12.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Icon(
+            InstaIcon(
                 modifier = Modifier.size(100.dp),
-                painter = painterResource(R.drawable.instagram_title),
-                contentDescription = null
+                painter = painterResource(R.drawable.instagram_title)
             )
             Spacer(modifier = Modifier.weight(1f))
-            Icon(
-                imageVector = Icons.Default.FavoriteBorder,
-                contentDescription = null
+            InstaIcon(
+                imageVector = Icons.Default.FavoriteBorder
             )
             Spacer(modifier = Modifier.width(18.dp))
-            Icon(
-                imageVector = Icons.Default.Send,
-                contentDescription = null
+            InstaIcon(
+                imageVector = Icons.Default.Send
             )
         }
         ListStories()
@@ -95,9 +93,11 @@ fun ListPosts() {
 
 @Composable
 fun ItemPost(post: Post) {
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(top = 16.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 16.dp)
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -143,7 +143,7 @@ fun ItemPost(post: Post) {
                 count = post.shared
             )
             Spacer(modifier = Modifier.weight(2f))
-            Icon(imageVector = Icons.Default.Info, contentDescription = null)
+            InstaIcon(imageVector = Icons.Default.Info)
         }
     }
 }
@@ -152,13 +152,16 @@ fun ItemPost(post: Post) {
 fun IconAndCount(
     modifier: Modifier,
     icon: ImageVector,
-    count: String,
-    contentDescription: String? = null
+    count: String
 ) {
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
-        Icon(imageVector = icon, contentDescription = contentDescription)
+        InstaIcon(imageVector = icon)
         Spacer(modifier = Modifier.width(4.dp))
-        InstaTextSmall(text = count, fontWeight = FontWeight.SemiBold)
+        InstaTextSmall(
+            text = count,
+            fontWeight = FontWeight.SemiBold,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
     }
 }
 

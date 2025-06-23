@@ -11,7 +11,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -20,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sylvieprojects.instaproject.common.InstaUtils.getNavItemById
 import com.sylvieprojects.instaproject.domain.models.NavItem
+import com.sylvieprojects.instaproject.view.core.components.InstaIcon
 import com.sylvieprojects.instaproject.view.core.components.InstaUserPhoto
 import com.sylvieprojects.instaproject.view.home.HomeScreen
 
@@ -61,7 +61,7 @@ fun RowScope.MyItemNavBar(navItem: Int, isSelected: Boolean, onItemClick: () -> 
                         image = it.profileImage
                     )
                 } else {
-                    Icon(imageVector = it.icon, contentDescription = "")
+                    Icon(imageVector = it.icon, contentDescription = null)
                 }
             }
         },
