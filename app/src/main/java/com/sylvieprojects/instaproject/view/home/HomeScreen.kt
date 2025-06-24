@@ -31,10 +31,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sylvieprojects.instaproject.R
 import com.sylvieprojects.instaproject.domain.models.Pokemon
 import com.sylvieprojects.instaproject.view.core.components.InstaIcon
@@ -43,7 +43,8 @@ import com.sylvieprojects.instaproject.view.core.components.InstaUserPhoto
 
 @Preview(showSystemUi = true)
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, homeViewModel: HomeViewModel = viewModel()) {
+fun HomeScreen(modifier: Modifier = Modifier, homeViewModel: HomeViewModel = hiltViewModel()) {
+
     val lifecycle = LocalLifecycleOwner.current.lifecycle
 
     val uiState by produceState<HomeUiState>(
